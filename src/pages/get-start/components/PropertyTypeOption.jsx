@@ -1,6 +1,11 @@
+import usePropertyInfo from "../../../hooks/usePropertyInfo";
+import { PROPERTY_TYPE } from "../../../reducers/propertyTypeReduces";
 
-export default function PropertyTypeOption({ props }) {
-    const {propertyType,setPropertyType} = props || {}
+export default function PropertyTypeOption() {
+    const {propertyState,dispatch} = usePropertyInfo()
+    const handleClick=(title)=>{
+      dispatch({type:PROPERTY_TYPE,data:title})
+    }
     
     const options = [
         {
@@ -73,9 +78,9 @@ export default function PropertyTypeOption({ props }) {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {options.map((item, index) => (
                     <div
-                       onClick={()=>setPropertyType(item.title)}
+                       onClick={()=>handleClick(item.title)}
                         key={index}
-                        className={`${propertyType === item.title && "border border-blue-400 bg-blue-50"} border border-[#E0E0E0] rounded-lg px-5 py-4 hover:border-[#316EED] hover:bg-blue-50 transition cursor-pointer flex items-center space-x-4`}
+                        className={`${propertyState.propertyType === item.title && "border border-blue-400 bg-blue-50"} border border-[#E0E0E0] rounded-lg px-5 py-4 hover:border-[#316EED] hover:bg-blue-50 transition cursor-pointer flex items-center space-x-4`}
                     >
                         <div className="text-2xl">{item.icon}</div>
                         <div>
