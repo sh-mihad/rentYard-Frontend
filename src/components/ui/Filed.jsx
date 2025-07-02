@@ -5,7 +5,7 @@ export default function Filed({ children,label,isRequiredFlag=false }) {
     return (
         <div>
             <label htmlFor={props.id || props.name} className="block text-xs font-medium text-gray-700 mb-1">
-                {label}{isRequiredFlag&&"*"}
+                {label}{isRequiredFlag&&<span className="text-red-500">*</span>}
             </label>
             {
                 children
