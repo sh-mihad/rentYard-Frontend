@@ -5,9 +5,9 @@ import { route } from "./route/route"
 function App() {
 
   return (
-  <PropertyContextProvider>
-    <RouterProvider router={route} />
-  </PropertyContextProvider>
+    <PropertyContextProvider>
+      <RouterProvider router={route} />
+    </PropertyContextProvider>
   )
 }
 

@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import InformationProvider from "../contextProvider/InformationProvider";
 import GetStartPage from "../pages/get-start";
 import HomePage from "../pages/home";
 import InfoPage from "../pages/info";
@@ -15,11 +16,11 @@ export const route = createBrowserRouter([
     },
     {
         path:"/information",
-        element:<InfoPage/>
+        element:<InformationProvider><InfoPage/></InformationProvider>
     },
     {
         path:"/payment",
-        element:<PaymentPage/>
+        element:<InformationProvider><PaymentPage/></InformationProvider>
     },
 
 ])

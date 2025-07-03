@@ -11,8 +11,12 @@ const stateOptions = [
     { label: "Chottogram", value: 'Chottogram' },
     { label: "Khulna", value: 'Khulna' },
 ]
-export default function PropertyAddress({ ref, onSubmit }) {
+export default function PropertyAddress({ ref, modalRef }) {
     const { register, handleSubmit } = useForm()
+    const onSubmit = (formData) => {
+        console.log("formData", formData);
+        modalRef.current.close()
+    }
     return (
         <div className=''>
             <form ref={ref} onSubmit={handleSubmit(onSubmit)}>

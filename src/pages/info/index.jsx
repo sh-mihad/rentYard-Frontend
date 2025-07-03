@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import CommonLayout from "../../components/layouts/CommonLayout";
 import Button from "../../components/ui/Button";
 import usePropertyInfo from "../../hooks/usePropertyInfo";
@@ -15,14 +16,12 @@ export default function InfoPage() {
     formRef.current.requestSubmit()
   };
 
-  const onSubmit = (formData) => {
-    console.log("formData", formData);
-    modalRef.current.close()
-  }
+
+  const navigate = useNavigate()
   return (
     <CommonLayout
       renderFooterLastButton={
-        () => <Button onClick={() => console.log("khaise amare")} type="submit" isBg={true}>Next</Button>
+        () => <Button onClick={() =>navigate("/payment") } type="button" isBg={true}>Next</Button>
       }
       renderTopCornerButton={
         () => <Button onClick={() => console.log("exit button clicked")}>Save & Exit</Button>
@@ -37,7 +36,7 @@ export default function InfoPage() {
             isRequired={true}
             OnAction={handleOnAction}
             modalRenderProps={
-              () => <PropertyAddress ref={formRef} onSubmit={onSubmit} />
+              () => <PropertyAddress ref={formRef} modalRef={modalRef} />
             }
           />
           <InformationItem />
