@@ -21,7 +21,7 @@ import ApplicationAgreementForm from "./components/applicationAgreement/Applicat
 import ApplicationAgreement from "./components/applicationAgreement/ApplicationAgreement";
 import AboutPropertyForm from "./components/AboutProperty/AboutPropertyForm";
 import AboutProperty from "./components/AboutProperty/AboutProperty";
-import PropertyGallery from "./components/propertyGallery/propertyGallery";
+import PropertyGallery from "./components/propertyGallery/PropertyGallery";
 
 export default function InfoPage() {
   const { propertyState } = usePropertyInfo()
