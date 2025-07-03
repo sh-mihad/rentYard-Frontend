@@ -21,7 +21,6 @@ import ApplicationAgreementForm from "./components/applicationAgreement/Applicat
 import ApplicationAgreement from "./components/applicationAgreement/ApplicationAgreement";
 import AboutPropertyForm from "./components/AboutProperty/AboutPropertyForm";
 import AboutProperty from "./components/AboutProperty/AboutProperty";
-import ImageUpload from "../../components/ui/ImageUpload";
 import PropertyGallery from "./components/propertyGallery/propertyGallery";
 
 export default function InfoPage() {
