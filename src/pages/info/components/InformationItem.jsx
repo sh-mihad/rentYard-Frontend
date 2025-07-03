@@ -19,7 +19,14 @@ export default function InformationItem({
     useImperativeHandle(ref, () => ({
         close: () => setShowModal(false),
     }));
-    const readableData = informationState[propertiesName]
+    let readableData = null;
+    if (Array.isArray(informationState[propertiesName]) && informationState[propertiesName].length > 0) {
+        readableData = informationState[propertiesName]
+    }else if (!Array.isArray(informationState[propertiesName])) {
+        readableData = informationState[propertiesName]
+    }else{
+     readableData = null;   
+    }
 
     return (
         <div className=''>
@@ -29,8 +36,8 @@ export default function InformationItem({
                         <p className="text-md font-medium text-gray-600">{title} {isRequired ? <span className='text-red-400'>(Required)</span> : <span className='text-gray-400 font-normal'>{`(Optional${optionalMsg && "," + optionalMsg})`}</span>}</p>
                     </div>
                     <button onClick={() => setShowModal(true)} className="cursor-pointer">
-                        {readableData ? <TbEdit className="inline text-[#316EED]" /> : <span className="text-[#316EED]">+</span>}
-                        <span className="border-b border-[#316EED] text-[#316EED]">{readableData ? "Edit" : "Add"}</span>
+                        {(readableData &&!Array.isArray(readableData )) ? <TbEdit className="inline text-[#316EED]" /> : <span className="text-[#316EED]">+</span>}
+                        <span className="border-b border-[#316EED] text-[#316EED]">{(readableData&&!Array.isArray(readableData ))? "Edit" : "Add"}</span>
                     </button>
                 </div>
 
@@ -51,7 +58,7 @@ export default function InformationItem({
                     onAction={() => {
                         OnAction(setShowModal);
                     }}
-                    actionLabel={informationState[propertiesName] ? "Update" : "Add"}
+                    actionLabel={(readableData && !Array.isArray(readableData )) ? "Update" : "Add"}
                 >
                     {
                         modalRenderProps()

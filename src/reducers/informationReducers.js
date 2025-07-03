@@ -23,7 +23,7 @@ export const informationInitialState = {
     aboutProperty:null,
     community:null,
     propertyGallery:null,
-    petFees:null,
+    petFees:[],
     parking:null,
     nearestEducationalInstitute:null,
     nearestStation:null,
@@ -59,7 +59,7 @@ export const informationReducers=(state,action)=>{
             return {...state,propertyGallery:action.data}
         }
         case PET_FEES :{
-            return {...state,petFees:action.data}
+            return {...state,petFees:[...state.petFees,action.data]}
         }
         case PARKING :{
             return {...state,parking:action.data}

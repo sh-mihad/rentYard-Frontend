@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import CommonLayout from "../../components/layouts/CommonLayout";
 import Button from "../../components/ui/Button";
 import usePropertyInfo from "../../hooks/usePropertyInfo";
-import Charges from "./components/Charges";
+import Charges from "./charges/Charges";
 import InformationItem from "./components/InformationItem";
 import LeasingInfo from "./components/leasingInfo/LeasingInfo";
 import LeasingInfoForm from "./components/leasingInfo/LeasingInfoForm";
@@ -37,95 +37,105 @@ export default function InfoPage() {
     >
       <section className="max-w-6xl mx-auto  py-6">
         <h2 className="text-xl font-semibold text-[#272B35] mb-6">{propertyState?.propertyType}</h2>
-        <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
-          <InformationItem
-            ref={modalRef}
-            title="Property address"
-            isRequired={true}
-            OnAction={handleOnAction}
-            propertiesName="propertyAddress"
-            isEdit={true}
-            modalRenderProps={
-              () => <PropertyAddressForm ref={formRef} modalRef={modalRef} />
-            }
-            respectiveDataRenderProps={()=><PropertyAddress/>}
-          />
-          {/* pet fees*/}
-          <InformationItem
-            ref={modalRef}
-            title="Pet Fees"
-            isRequired={false}
-            OnAction={handleOnAction}
-             
-            optionalMsg="add fees if you allow pet"
-            modalRenderProps={
-              () => <PetFeesForm ref={formRef} modalRef={modalRef} />
-            }
-             respectiveDataRenderProps={()=><PetFees/>}
-          />
-          {/*leasing info*/}
-          <InformationItem
-            ref={modalRef}
-            title="Leasing Info"
-            isRequired={true}
-            OnAction={handleOnAction}
-            propertiesName="leasingInfo"
-            modalRenderProps={
-              () => <LeasingInfoForm ref={formRef} modalRef={modalRef} />
-            }
-             respectiveDataRenderProps={()=><LeasingInfo/>}
-          />
-          {/*Parking*/}
-          <InformationItem
-            ref={modalRef}
-            title="Parking(optional)"
-            isRequired={false}
-            OnAction={handleOnAction}
-            modalRenderProps={
-              () => <Parking ref={formRef} modalRef={modalRef} />
-            }
-          />
-          {/*Charges info*/}
-          <InformationItem
-            ref={modalRef}
-            title="Charges"
-            isRequired={true}
-            OnAction={handleOnAction}
-            modalRenderProps={
-              () => <Charges ref={formRef} modalRef={modalRef} />
-            }
-          />
-          {/*Nearest educational institution*/}
-          <InformationItem
-            ref={modalRef}
-            title="Nearest educational institution"
-            isRequired={false}
-            OnAction={handleOnAction}
-            modalRenderProps={
-              () => <NearestEducational ref={formRef} modalRef={modalRef} />
-            }
-          />
-          {/*Rent frequency & payment reminder*/}
-          <InformationItem
-            ref={modalRef}
-            title="Rent frequency & payment reminder"
-            isRequired={true}
-            OnAction={handleOnAction}
-            modalRenderProps={
-              () => <RentFrequency ref={formRef} modalRef={modalRef} />
-            }
-          />
-          {/* Nearest stations*/}
-          <InformationItem
-            ref={modalRef}
-            title="Nearest stations"
-            isRequired={false}
-            OnAction={handleOnAction}
-            optionalMsg="but recommended"
-            modalRenderProps={
-              () => <NearestStation ref={formRef} modalRef={modalRef} />
-            }
-          />
+        <div className="flex flex-col lg:flex-row gap-3">
+          {/* left side */}
+          <div className="w-full space-y-2">
+            <InformationItem
+              ref={modalRef}
+              title="Property address"
+              isRequired={true}
+              OnAction={handleOnAction}
+              propertiesName="propertyAddress"
+              isEdit={true}
+              modalRenderProps={
+                () => <PropertyAddressForm ref={formRef} modalRef={modalRef} />
+              }
+              respectiveDataRenderProps={() => <PropertyAddress />}
+            />
+
+
+            {/*leasing info*/}
+            <InformationItem
+              ref={modalRef}
+              title="Leasing Info"
+              isRequired={true}
+              OnAction={handleOnAction}
+              propertiesName="leasingInfo"
+              modalRenderProps={
+                () => <LeasingInfoForm ref={formRef} modalRef={modalRef} />
+              }
+              respectiveDataRenderProps={() => <LeasingInfo />}
+            />
+            {/*Charges info*/}
+            <InformationItem
+              ref={modalRef}
+              title="Charges"
+              isRequired={true}
+              OnAction={handleOnAction}
+              modalRenderProps={
+                () => <Charges ref={formRef} modalRef={modalRef} />
+              }
+            />
+            {/*Rent frequency & payment reminder*/}
+            <InformationItem
+              ref={modalRef}
+              title="Rent frequency & payment reminder"
+              isRequired={true}
+              OnAction={handleOnAction}
+              modalRenderProps={
+                () => <RentFrequency ref={formRef} modalRef={modalRef} />
+              }
+            />
+          </div>
+
+
+          {/* right side */}
+          <div className="w-full space-y-2">
+            {/* pet fees*/}
+            <InformationItem
+              ref={modalRef}
+              title="Pet Fees"
+              isRequired={false}
+              OnAction={handleOnAction}
+              propertiesName="petFees"
+              optionalMsg="add fees if you allow pet"
+              modalRenderProps={
+                () => <PetFeesForm ref={formRef} modalRef={modalRef} />
+              }
+              respectiveDataRenderProps={() => <PetFees />}
+            />
+            {/*Parking*/}
+            <InformationItem
+              ref={modalRef}
+              title="Parking(optional)"
+              isRequired={false}
+              OnAction={handleOnAction}
+              modalRenderProps={
+                () => <Parking ref={formRef} modalRef={modalRef} />
+              }
+            />
+            {/*Nearest educational institution*/}
+            <InformationItem
+              ref={modalRef}
+              title="Nearest educational institution"
+              isRequired={false}
+              OnAction={handleOnAction}
+              modalRenderProps={
+                () => <NearestEducational ref={formRef} modalRef={modalRef} />
+              }
+            />
+            {/* Nearest stations*/}
+            <InformationItem
+              ref={modalRef}
+              title="Nearest stations"
+              isRequired={false}
+              OnAction={handleOnAction}
+              optionalMsg="but recommended"
+              modalRenderProps={
+                () => <NearestStation ref={formRef} modalRef={modalRef} />
+              }
+            />
+          </div>
         </div>
       </section>
     </CommonLayout>

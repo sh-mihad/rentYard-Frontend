@@ -25,7 +25,6 @@ export default function LeasingInfoForm({ ref, modalRef }) {
     })
     const sameAddress = watch("sameAddressAsProperty");
     const onSubmit = (formData) => {
-        console.log("formData", formData);
         informationDispatch({ type: LEASING_INFO, data: formData })
         modalRef.current.close()
     }
