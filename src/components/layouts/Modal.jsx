@@ -28,7 +28,7 @@ export default function Modal({ onClose, title, children, onAction, actionLabel 
         <div className="flex justify-end gap-2 px-6 py-4 border-t border-[#E0E0E0]">
           <button
             onClick={onAction}
-            className="px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700"
+            className="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700"
           >
             {actionLabel}
           </button>
