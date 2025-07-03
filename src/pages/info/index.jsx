@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import CommonLayout from "../../components/layouts/CommonLayout";
 import Button from "../../components/ui/Button";
 import usePropertyInfo from "../../hooks/usePropertyInfo";
-import Charges from "./charges/Charges";
+import Charges from "./components/charges/Charges";
+import ChargesForm from "./components/charges/ChargesForm";
 import InformationItem from "./components/InformationItem";
 import LeasingInfo from "./components/leasingInfo/LeasingInfo";
 import LeasingInfoForm from "./components/leasingInfo/LeasingInfoForm";
@@ -52,8 +53,6 @@ export default function InfoPage() {
               }
               respectiveDataRenderProps={() => <PropertyAddress />}
             />
-
-
             {/*leasing info*/}
             <InformationItem
               ref={modalRef}
@@ -72,9 +71,11 @@ export default function InfoPage() {
               title="Charges"
               isRequired={true}
               OnAction={handleOnAction}
+               propertiesName="charges"
               modalRenderProps={
-                () => <Charges ref={formRef} modalRef={modalRef} />
+                () => <ChargesForm ref={formRef} modalRef={modalRef} />
               }
+               respectiveDataRenderProps={() => <Charges />}
             />
             {/*Rent frequency & payment reminder*/}
             <InformationItem

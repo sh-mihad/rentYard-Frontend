@@ -19,7 +19,6 @@ export default function PropertyAddressForm({ ref, modalRef }) {
          defaultValues:informationState.propertyAddress
     })
     const onSubmit = (formData) => {
-        console.log("formData", formData);
         informationDispatch({ type: PROPERTY_ADDRESS, data: formData })
         modalRef.current.close()
     }
@@ -65,7 +64,7 @@ export default function PropertyAddressForm({ ref, modalRef }) {
                     <InputFiled
                         name="unit"
                         label="Apt, suit,unit(if applicable)"
-                        placeholder="111 Austin Ave"
+                        placeholder="123"
                         register={register}
                         required={false}
                     />
