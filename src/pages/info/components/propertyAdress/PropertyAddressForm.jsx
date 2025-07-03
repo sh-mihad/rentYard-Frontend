@@ -23,7 +23,6 @@ export default function PropertyAddressForm({ ref, modalRef }) {
         informationDispatch({ type: PROPERTY_ADDRESS, data: formData })
         modalRef.current.close()
     }
-    console.log("informationState", informationState.propertyAddress);
     return (
         <div className=''>
             <form ref={ref} onSubmit={handleSubmit(onSubmit)}>

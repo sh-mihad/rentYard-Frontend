@@ -5,10 +5,13 @@ import Button from "../../components/ui/Button";
 import usePropertyInfo from "../../hooks/usePropertyInfo";
 import Charges from "./components/Charges";
 import InformationItem from "./components/InformationItem";
+import LeasingInfo from "./components/leasingInfo/LeasingInfo";
+import LeasingInfoForm from "./components/leasingInfo/LeasingInfoForm";
 import NearestEducational from "./components/NearestEducational";
 import NearestStation from "./components/NearestStation";
 import Parking from "./components/Parking";
-import PetFees from "./components/PetFees";
+import PetFees from "./components/petFees/PetFees";
+import PetFeesForm from "./components/petFees/PetFeesForm";
 import PropertyAddress from "./components/propertyAdress/PropertyAddress";
 import PropertyAddressForm from "./components/propertyAdress/PropertyAddressForm";
 import RentFrequency from "./components/RentFrequency";
@@ -53,10 +56,12 @@ export default function InfoPage() {
             title="Pet Fees"
             isRequired={false}
             OnAction={handleOnAction}
+             
             optionalMsg="add fees if you allow pet"
             modalRenderProps={
-              () => <PetFees ref={formRef} modalRef={modalRef} />
+              () => <PetFeesForm ref={formRef} modalRef={modalRef} />
             }
+             respectiveDataRenderProps={()=><PetFees/>}
           />
           {/*leasing info*/}
           <InformationItem
@@ -64,9 +69,11 @@ export default function InfoPage() {
             title="Leasing Info"
             isRequired={true}
             OnAction={handleOnAction}
+            propertiesName="leasingInfo"
             modalRenderProps={
-              () => <PetFees ref={formRef} modalRef={modalRef} />
+              () => <LeasingInfoForm ref={formRef} modalRef={modalRef} />
             }
+             respectiveDataRenderProps={()=><LeasingInfo/>}
           />
           {/*Parking*/}
           <InformationItem
