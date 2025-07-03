@@ -4,6 +4,7 @@ import { RENT_FREQUENCY_AND_PAYMENT_REMINDER } from "../../../../reducers/inform
 import CustomSelect from "../../../../components/ui/CustomSelect"
 import DateField from "../../../../components/ui/DateFiled"
 import CheckboxField from "../../../../components/ui/CheckboxFiled"
+import ImageUpload from "../../../../components/ui/ImageUpload"
 const options = [
   { label: "Monthly", value: 'Monthly' },
   { label: "Daily", value: 'Daily' },
@@ -12,7 +13,7 @@ const options = [
 ]
 export default function RentFrequencyForm({ ref, modalRef }) {
   const { informationDispatch } = useInformation()
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit,watch } = useForm()
 
   const onSubmit = (formData) => {
     informationDispatch({ type: RENT_FREQUENCY_AND_PAYMENT_REMINDER, data: formData })
@@ -39,11 +40,15 @@ export default function RentFrequencyForm({ ref, modalRef }) {
           label="Rent due date"
           register={register}
           required={true}
-        />
-        
+        />      
 
       </div>
-
+      <ImageUpload
+      name="imageUpload"
+      label="Upload Cover Photo"
+      register={register}
+      watch={watch}
+      />
 
 
     </form>

@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
-export default function SectionCardLayout({ children, title }) {
+export default function SectionCardLayout({ children, title,isBgRemoveFormHeader = false,isHideCheckbox=false }) {
     return (
         <motion.div
             initial={{ opacity: 0, }}
@@ -8,14 +8,15 @@ export default function SectionCardLayout({ children, title }) {
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="max-w-6xl mx-auto">
             <div className="border border-[#E0E0E0]   rounded-xl overflow-hidden bg-white">
-                <div className="bg-gray-100 px-4 py-2 border-b border-[#E0E0E0]">
-                    <p className="text-sm font-medium text-gray-600">{title}</p>
+                <div className={`${!isBgRemoveFormHeader ?"bg-gray-100":""} px-4 py-2 border-b border-[#E0E0E0]`}>
+                    <p className={` ${isBgRemoveFormHeader ? "text-md" : "text-sm"} font-medium text-gray-600`}>{title}</p>
                 </div>
                 <div className="p-4">
                     {children}
                 </div>
             </div>
-            <div className="my-5 flex gap-1 items-center">
+            { !isHideCheckbox &&
+                <div className="my-5 flex gap-1 items-center">
                 <input
                     type="checkbox"
                     id="terms"
@@ -25,6 +26,7 @@ export default function SectionCardLayout({ children, title }) {
                     Accept RentYard property adding terms & condition
                 </label>
             </div>
+            }
         </motion.div>
     );
 }

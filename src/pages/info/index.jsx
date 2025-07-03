@@ -15,8 +15,14 @@ import PetFees from "./components/petFees/PetFees";
 import PetFeesForm from "./components/petFees/PetFeesForm";
 import PropertyAddress from "./components/propertyAdress/PropertyAddress";
 import PropertyAddressForm from "./components/propertyAdress/PropertyAddressForm";
-import RentFrequency from "./components/RentFrequency";
+import RentFrequency from "./components/rentFrequency/RentFrequency";
 import RentFrequencyForm from "./components/rentFrequency/RentFrequencyForm";
+import ApplicationAgreementForm from "./components/applicationAgreement/ApplicationAgreementForm";
+import ApplicationAgreement from "./components/applicationAgreement/ApplicationAgreement";
+import AboutPropertyForm from "./components/AboutProperty/AboutPropertyForm";
+import AboutProperty from "./components/AboutProperty/AboutProperty";
+import ImageUpload from "../../components/ui/ImageUpload";
+import PropertyGallery from "./components/propertyGallery/propertyGallery";
 
 export default function InfoPage() {
   const { propertyState } = usePropertyInfo()
@@ -87,6 +93,38 @@ export default function InfoPage() {
               modalRenderProps={
                 () => <RentFrequencyForm ref={formRef} modalRef={modalRef} />
               }
+               respectiveDataRenderProps={() => <RentFrequency />}
+            />
+            {/*Application agreement*/}
+            <InformationItem
+              ref={modalRef}
+              title="Application agreement"
+              OnAction={handleOnAction}
+              modalRenderProps={
+                () => <ApplicationAgreementForm ref={formRef} modalRef={modalRef} />
+              }
+               respectiveDataRenderProps={() => <ApplicationAgreement />}
+            />
+            {/*About the property*/}
+            <InformationItem
+              ref={modalRef}
+              title="About the property"
+              OnAction={handleOnAction}
+              modalRenderProps={
+                () => <AboutPropertyForm ref={formRef} modalRef={modalRef} />
+              }
+               respectiveDataRenderProps={() => <AboutProperty />}
+            />
+            {/*Community’s amenity/features*/}
+            <InformationItem
+              ref={modalRef}
+              title="Community’s amenity/features"
+              OnAction={handleOnAction}
+              optionalMsg="but recommended"
+              modalRenderProps={
+                () => <AboutPropertyForm ref={formRef} modalRef={modalRef} />
+              }
+               respectiveDataRenderProps={() => <AboutProperty />}
             />
           </div>
 
@@ -100,7 +138,7 @@ export default function InfoPage() {
               isRequired={false}
               OnAction={handleOnAction}
               propertiesName="petFees"
-              optionalMsg="add fees if you allow pet"
+              optionalMsg=", add fees if you allow pet"
               modalRenderProps={
                 () => <PetFeesForm ref={formRef} modalRef={modalRef} />
               }
@@ -137,7 +175,32 @@ export default function InfoPage() {
                 () => <NearestStation ref={formRef} modalRef={modalRef} />
               }
             />
+            {/* Nearest landmark*/}
+            <InformationItem
+              ref={modalRef}
+              title="Nearest landmark"
+              isRequired={false}
+              OnAction={handleOnAction}
+              optionalMsg="but recommended"
+              modalRenderProps={
+                () => <NearestStation ref={formRef} modalRef={modalRef} />
+              }
+            />
+            {/* Utilities provider*/}
+            <InformationItem
+              ref={modalRef}
+              title="Utilities provider"
+              isRequired={false}
+              OnAction={handleOnAction}
+              optionalMsg="but recommended"
+              modalRenderProps={
+                () => <NearestStation ref={formRef} modalRef={modalRef} />
+              }
+            />
           </div>
+        </div>
+        <div className="py-3">
+          <PropertyGallery/>
         </div>
       </section>
     </CommonLayout>
