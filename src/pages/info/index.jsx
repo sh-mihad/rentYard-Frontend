@@ -16,6 +16,7 @@ import PetFeesForm from "./components/petFees/PetFeesForm";
 import PropertyAddress from "./components/propertyAdress/PropertyAddress";
 import PropertyAddressForm from "./components/propertyAdress/PropertyAddressForm";
 import RentFrequency from "./components/RentFrequency";
+import RentFrequencyForm from "./components/rentFrequency/RentFrequencyForm";
 
 export default function InfoPage() {
   const { propertyState } = usePropertyInfo()
@@ -84,7 +85,7 @@ export default function InfoPage() {
               isRequired={true}
               OnAction={handleOnAction}
               modalRenderProps={
-                () => <RentFrequency ref={formRef} modalRef={modalRef} />
+                () => <RentFrequencyForm ref={formRef} modalRef={modalRef} />
               }
             />
           </div>
