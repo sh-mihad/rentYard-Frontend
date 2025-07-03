@@ -1,6 +1,8 @@
 import { useForm } from 'react-hook-form'
-import CustomSelect from '../../../components/ui/CustomSelect'
-import InputFiled from '../../../components/ui/InputFiled'
+import CustomSelect from '../../../../components/ui/CustomSelect'
+import InputFiled from '../../../../components/ui/InputFiled'
+import useInformation from '../../../../hooks/useInformation'
+import { PROPERTY_ADDRESS } from '../../../../reducers/informationReducers'
 const countryOptions = [
     { label: "Bangladesh", value: 'Bangladesh' },
     { label: "Pakistan", value: 'Pakistan' },
@@ -11,12 +13,17 @@ const stateOptions = [
     { label: "Chottogram", value: 'Chottogram' },
     { label: "Khulna", value: 'Khulna' },
 ]
-export default function PropertyAddress({ ref, modalRef }) {
-    const { register, handleSubmit } = useForm()
+export default function PropertyAddressForm({ ref, modalRef }) {
+    const { informationState, informationDispatch } = useInformation()
+    const { register, handleSubmit} = useForm({
+         defaultValues:informationState.propertyAddress
+    })
     const onSubmit = (formData) => {
         console.log("formData", formData);
+        informationDispatch({ type: PROPERTY_ADDRESS, data: formData })
         modalRef.current.close()
     }
+    console.log("informationState", informationState.propertyAddress);
     return (
         <div className=''>
             <form ref={ref} onSubmit={handleSubmit(onSubmit)}>
