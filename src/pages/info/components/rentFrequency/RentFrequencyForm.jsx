@@ -13,7 +13,7 @@ const options = [
 ]
 export default function RentFrequencyForm({ ref, modalRef }) {
   const { informationDispatch } = useInformation()
-  const { register, handleSubmit,watch } = useForm()
+  const { register, handleSubmit } = useForm()
 
   const onSubmit = (formData) => {
     informationDispatch({ type: RENT_FREQUENCY_AND_PAYMENT_REMINDER, data: formData })
@@ -43,14 +43,6 @@ export default function RentFrequencyForm({ ref, modalRef }) {
         />      
 
       </div>
-      <ImageUpload
-      name="imageUpload"
-      label="Upload Cover Photo"
-      register={register}
-      watch={watch}
-      />
-
-
     </form>
   )
 }

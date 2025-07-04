@@ -21,7 +21,7 @@ export const informationInitialState = {
     rentFrequency:null,
     applicationAgreement:null,
     aboutProperty:null,
-    community:null,
+    community:[],
     propertyGallery:null,
     petFees:[],
     parking:null,

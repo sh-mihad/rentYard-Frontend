@@ -22,6 +22,12 @@ import ApplicationAgreement from "./components/applicationAgreement/ApplicationA
 import AboutPropertyForm from "./components/AboutProperty/AboutPropertyForm";
 import AboutProperty from "./components/AboutProperty/AboutProperty";
 import PropertyGallery from "./components/propertyGallery/PropertyGallery";
+import CommunityForm from "./components/communitys/CommunitysForm";
+import ParkingForm from "./components/parking/ParkingForm";
+import NearestEducationForm from "./components/nearestEducation/NearestEducationForm";
+import NearestStationForm from "./components/NearestStation/NearestStationForm";
+import NearestLandMarkForm from "./components/landMark/NearestLandMarkForm";
+import UtilityProviderForm from "./components/utilityProvider/utilityProviderForm";
 
 export default function InfoPage() {
   const { propertyState } = usePropertyInfo()
@@ -121,7 +127,7 @@ export default function InfoPage() {
               OnAction={handleOnAction}
               optionalMsg="but recommended"
               modalRenderProps={
-                () => <AboutPropertyForm ref={formRef} modalRef={modalRef} />
+                () => <CommunityForm ref={formRef} modalRef={modalRef} />
               }
                respectiveDataRenderProps={() => <AboutProperty />}
             />
@@ -150,7 +156,7 @@ export default function InfoPage() {
               isRequired={false}
               OnAction={handleOnAction}
               modalRenderProps={
-                () => <Parking ref={formRef} modalRef={modalRef} />
+                () => <ParkingForm ref={formRef} modalRef={modalRef} />
               }
             />
             {/*Nearest educational institution*/}
@@ -160,7 +166,7 @@ export default function InfoPage() {
               isRequired={false}
               OnAction={handleOnAction}
               modalRenderProps={
-                () => <NearestEducational ref={formRef} modalRef={modalRef} />
+                () => <NearestEducationForm ref={formRef} modalRef={modalRef} />
               }
             />
             {/* Nearest stations*/}
@@ -171,7 +177,7 @@ export default function InfoPage() {
               OnAction={handleOnAction}
               optionalMsg="but recommended"
               modalRenderProps={
-                () => <NearestStation ref={formRef} modalRef={modalRef} />
+                () => <NearestStationForm ref={formRef} modalRef={modalRef} />
               }
             />
             {/* Nearest landmark*/}
@@ -182,7 +188,7 @@ export default function InfoPage() {
               OnAction={handleOnAction}
               optionalMsg="but recommended"
               modalRenderProps={
-                () => <NearestStation ref={formRef} modalRef={modalRef} />
+                () => <NearestLandMarkForm ref={formRef} modalRef={modalRef} />
               }
             />
             {/* Utilities provider*/}
@@ -193,7 +199,7 @@ export default function InfoPage() {
               OnAction={handleOnAction}
               optionalMsg="but recommended"
               modalRenderProps={
-                () => <NearestStation ref={formRef} modalRef={modalRef} />
+                () => <UtilityProviderForm ref={formRef} modalRef={modalRef} />
               }
             />
           </div>
