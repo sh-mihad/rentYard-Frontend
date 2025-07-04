@@ -30,7 +30,7 @@ export default function InformationItem({
 
     return (
         <div className=''>
-            <div className="border border-[#E0E0E0]   rounded-xl overflow-hidden bg-white">
+            <div className="border border-[#E0E0E0]  p-1 rounded-[20px] overflow-hidden bg-white">
                 <div className=" px-4 py-3 flex justify-between items-center border-[#E0E0E0]">
                     <div>
                         <p className="text-md font-medium text-gray-600">{title} {isRequired ? <span className='text-red-400'>(Required)</span> : <span className='text-gray-400 font-normal'>{`(Optional${optionalMsg && " "+ optionalMsg})`}</span>}</p>

@@ -42,11 +42,11 @@ export default function InfoPage() {
         () => <Button onClick={() => console.log("exit button clicked")}>Save & Exit</Button>
       }
     >
-      <section className="max-w-6xl mx-auto  py-6">
-        <h2 className="text-xl font-semibold text-[#272B35] mb-6">{propertyState?.propertyType}</h2>
+      <section className="max-w-6xl mx-auto  ">
+        <h2 className="text-2xl font-semibold text-[#272B35] mb-6">{propertyState?.propertyType} Information</h2>
         <div className="flex flex-col lg:flex-row gap-3">
           {/* left side */}
-          <div className="w-full space-y-2">
+          <div className="w-full space-y-3">
             <InformationItem
               ref={modalRef}
               title="Property address"
@@ -129,7 +129,7 @@ export default function InfoPage() {
 
 
           {/* right side */}
-          <div className="w-full space-y-2">
+          <div className="w-full space-y-3">
             {/* pet fees*/}
             <InformationItem
               ref={modalRef}
