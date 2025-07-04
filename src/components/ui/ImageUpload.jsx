@@ -14,10 +14,11 @@ export default function ImageUpload({
     <div className="w-full h-full">
       <label
         htmlFor={name}
-        className={`border-dashed border-2 border-[#316EED] bg-[#F6F9FF]  px-10 ${
-          !isSmall ? "py-10 space-x-4" : "py-2 pt-5"
+        className={`border-dashed border-2 border-[#316EED] bg-[#F6F9FF]   ${
+          !isSmall ? "h-36" : ""
         } rounded-lg flex flex-col justify-center items-center  text-gray-500 text-sm cursor-pointer`}
       >
+        <span class="text-xs block h-4 w-7"> </span>
         <div className={`p-2 margin-auto rounded-lg border-dashed border-2 border-[#316EED] `}>
           <FaArrowUpFromBracket
             className={`text-[#272B35] ${isSmall && "text-xs"}`}
