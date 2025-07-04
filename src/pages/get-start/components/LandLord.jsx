@@ -1,9 +1,13 @@
 import { useForm } from 'react-hook-form';
 import SectionCardLayout from '../../../components/layouts/SectionCardLayouts';
 import PdfUpload from '../../../components/ui/PdfUpload';
+import usePropertyInfo from '../../../hooks/usePropertyInfo';
 
 export default function LandLord({ref,onSubmit}) {
-    const { register, handleSubmit, watch } = useForm()
+    const {propertyState}=usePropertyInfo()
+    const { register, handleSubmit, watch } = useForm({
+        defaultValues: propertyState.othersAdditionalData
+    })
 
   
     return (

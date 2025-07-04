@@ -9,7 +9,7 @@ export default function SectionCardLayout({ children, title,isBgRemoveFormHeader
             className="max-w-6xl mx-auto">
             <div className="border border-[#E0E0E0]   rounded-xl overflow-hidden bg-white">
                 <div className={`${!isBgRemoveFormHeader ?"bg-gray-100":""} px-4 py-2 border-b border-[#E0E0E0]`}>
-                    <p className={` ${isBgRemoveFormHeader ? "text-md" : "text-sm"} font-medium text-gray-600`}>{title}</p>
+                    <p className={` ${isBgRemoveFormHeader ? "text-md" : "text-sm"} font-medium text-[#6F6C6A]`}>{title}</p>
                 </div>
                 <div className="p-4">
                     {children}
@@ -19,6 +19,7 @@ export default function SectionCardLayout({ children, title,isBgRemoveFormHeader
                 <div className="my-5 flex gap-1 items-center">
                 <input
                     type="checkbox"
+                    checked={true}
                     id="terms"
                     className="accent-[#E0E0E0]  w-4 h-4 border border-gray-300 rounded-sm checked:bg-transparent checked:border checked:accent-white"
                 />

@@ -3,6 +3,7 @@ import SectionCardLayout from '../../../components/layouts/SectionCardLayouts';
 import CustomSelect from '../../../components/ui/CustomSelect';
 import InputFiled from '../../../components/ui/InputFiled';
 import PdfUpload from '../../../components/ui/PdfUpload';
+import usePropertyInfo from '../../../hooks/usePropertyInfo';
 const countryOptions = [
     { label: "Bangladesh", value: 'Bangladesh' },
     { label: "Pakistan", value: 'Pakistan' },
@@ -14,7 +15,10 @@ const stateOptions = [
     { label: "Khulna", value: 'Khulna' },
 ]
 export default function PropertyManagement({ref,onSubmit}) {
-    const { register, handleSubmit, watch } = useForm()
+    const {propertyState}=usePropertyInfo()
+    const { register, handleSubmit, watch } = useForm({
+        defaultValues: propertyState.othersAdditionalData
+    })
    
     return (
         <SectionCardLayout title={"Company & office info"}>
@@ -65,7 +69,7 @@ export default function PropertyManagement({ref,onSubmit}) {
                     <InputFiled
                         name="unit"
                         label="Apt, suit,unit(if applicable)"
-                        placeholder="111 Austin Ave"
+                        placeholder="3050"
                         register={register}
                         required={false}
                     />
