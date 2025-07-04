@@ -27,7 +27,7 @@ import ParkingForm from "./components/parking/ParkingForm";
 import NearestEducationForm from "./components/nearestEducation/NearestEducationForm";
 import NearestStationForm from "./components/NearestStation/NearestStationForm";
 import NearestLandMarkForm from "./components/landMark/NearestLandMarkForm";
-import UtilityProviderForm from "./components/utilityProvider/utilityProviderForm";
+import UtilityProviderForm from "./components/utilityProvider/UtilitesProviderForm";
 
 export default function InfoPage() {
   const { propertyState } = usePropertyInfo()
